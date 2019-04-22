@@ -49,10 +49,10 @@ function initMap() {
 function drawCenterCircle(pos) {
     testCircle = new google.maps.Circle({
         strokeColor: '#FF0000',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
+        strokeOpacity: 1,
+        strokeWeight: 3,
         fillColor: '#FF0000',
-        fillOpacity: 0.35,
+        fillOpacity: 0,
         map: map,
         center: pos,
         radius: 40000
@@ -121,9 +121,10 @@ function makeResultInfoWindow(position, result) {
         map: map,
         position: position,
         content: '<div id="infoWindowContent">' +
-            '<h1 id="nameHeading">'+result.name+'</h1>'+
+            '<a href="'+ result.url  +'" id="nameHeading" ><h1>'+result.name+'</h1></a>'+
             '<div id="keyInfo">'+
             '<h4>Phone: '+result.display_phone+'</h4>'+
+            '<h5>Address: '+ result.location.address1 +'</h5>'+
             '<h5>Rating: '+result.rating+'</h5>'+
             //'<img src="'+result.image_url+'">'+
             '<h5>Distance: '+getMiles(result.distance).toFixed(1)+' miles</h5>'+

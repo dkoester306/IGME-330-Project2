@@ -12,7 +12,7 @@ let app = new Vue({
             console.log("In Search Term");
 
             // get the term from the Vue Object --
-            // get the initial position from Google Maps
+            // get the initial lat and lng from Google Maps
             let termString = "term=" + this.term;
             let locString = "latitude=" + map.getCenter().lat() + "&" + "longitude=" + map.getCenter().lng();
 
@@ -65,10 +65,7 @@ let app = new Vue({
             // created markers for all of the places found from the search
             for(let i = 0;i<this.result.businesses.length;i++){
                 addMarker(this.result.businesses[i]);
-
             }
-            
-            
         },
         dataError(e) {
             console.log("An error occurred");

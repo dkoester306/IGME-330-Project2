@@ -54,6 +54,8 @@
     <div id="root">
         <input id="termBar" type="text" size="20" maxlength="20" v-model="term" />
         <button id="searchTermButton" @click="getSearchData" >Search</button>
+        <input type="radio" name="open_now" value="open">
+        <input type="radio" name="closed_now" value="closed">
     </div>
 
     <script src="src/load-firebase.js"></script>
