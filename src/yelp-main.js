@@ -1,5 +1,5 @@
 // base url for accessing YELP API. File must be run through Banjo. Append endpoints to the this.
-const BASE_URL = "https://people.rit.edu/dsk6539/330/yelp-proxy.php?";
+const BASE_URL = "https://people.rit.edu/dsk6539/330/yelp/yelp-proxy.php?";
 
 let app = new Vue({
     el: "#root",
