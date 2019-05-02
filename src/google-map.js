@@ -119,17 +119,22 @@ function makeInfoWindow(position, msg) {
 function makeResultInfoWindow(position, result) {
     // close old window if it exists
     if (infoWindow) infoWindow.close();
-
+    let pir = "unknown";
+    if(result.price)
+    {
+        pir = result.price;
+    }
     // make a new InfoWindow
     infoWindow = new google.maps.InfoWindow({
         map: map,
         position: position,
         content: '<div id="infoWindowContent">' +
-            '<a href="'+ result.url  +'" id="nameHeading" ><h1>'+result.name+'</h1></a>'+
+            '<a href="'+ result.url  +'" " ><h1 id="nameHeading">'+result.name+'</h1></a>'+
             '<div id="keyInfo">'+
-            '<h4>Phone: '+result.display_phone+'</h4>'+
+            '<h4 id="rating">Rating: '+result.rating+'</h4>'+
+            '<h5>'+pir+'</h5>'+
+            '<h5>Phone: '+result.display_phone+'</h4>'+
             '<h5>Address: '+ result.location.address1 +'</h5>'+
-            '<h5>Rating: '+result.rating+'</h5>'+
             //'<img src="'+result.image_url+'">'+
             '<h5>Distance: '+getMiles(result.distance).toFixed(1)+' miles</h5>'+
             '</div>'+
