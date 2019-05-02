@@ -2,6 +2,9 @@ var map, infoWindow;
 let markers = [];
 let curLocation;
 let testCircle;
+let openIcon = "img/open.png";
+let closedIcon = "img/closed.png";
+
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: -34.397, lng: 150.644 },
@@ -71,6 +74,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 function addMarker(latitude, longitude, title) {
     let position = { lat: latitude, lng: longitude };
     let marker = new google.maps.Marker({ position: position, map: map });
+    let icon
     marker.setTitle(title);
 
     // add marker to array
@@ -87,7 +91,7 @@ function addMarker(result) {
     let position = { lat: result.coordinates.latitude, lng: result.coordinates.longitude };
     let marker = new google.maps.Marker({ position: position, map: map });
     marker.setTitle(result.name);
-
+    marker.setIcon('img/open.png');
     // add marker to array
     markers.push(marker);
 
