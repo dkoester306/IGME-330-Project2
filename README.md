@@ -4,6 +4,7 @@ Second and final project for IGME-330. Implements google maps API and yelp API t
 To Do List:
 - radius size dropdown
 - rating start dropdown limiter
+- Display yelp starts for review in place of numbers.
 - save last search term in the browser local storage (firebase)
 - Add html tag that says "searching" between seaching overhead time
 - option to disable circle
