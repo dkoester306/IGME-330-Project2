@@ -15,64 +15,52 @@
 
         #map {
             height: 100%;
-            z-index:0;
+            z-index: 0;
         }
-        #searchBar{
+
+        #termBar {
             position: absolute;
             color: red;
             font-weight: bold;
             height: 30px;
             width: 130px;
             z-index: 100;
-            top:10px;
-            left:200px;
-            
+            top: 10px;
+            left: 200px;
+
+        }
+        #searchTermButton{
+            position: absolute;
+            font-weight: bold;
+            font-size: 20px;
+            height: 35px;
+            width: 100px;
+            z-index: 100;
+            top: 10px;
+            left: 350px;
         }
     </style>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script>
-        // Initialize Firebase
-        var config = {
-            apiKey: "AIzaSyDM88Wk-Yxyv4bQW6wrctsAJFitRzoC0i8",
-            authDomain: "high-scores-a4672.firebaseapp.com",
-            databaseURL: "https://high-scores-a4672.firebaseio.com",
-            projectId: "high-scores-a4672",
-            storageBucket: "high-scores-a4672.appspot.com",
-            messagingSenderId: "758954708036"
-        };
-        firebase.initializeApp(config);
-    </script>
+    <script src="src/helper-functions.js"></script>
+    
 </head>
 
 <body>
+    
+    
+    
     <div id="map"></div>
     <div id="root">
-        <input id="searchBar" type="text" size="20" maxlength="20" v-model="term"/>
+        <input id="termBar" type="text" size="20" maxlength="20" v-model="term" />
+        <button id="searchTermButton" @click="getSearchData" >Search</button>
+        <input type="radio" name="open_now" value="open">
+        <input type="radio" name="closed_now" value="closed">
     </div>
 
-
-    <script>
-        var map;
-        function initMap() {
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 8
-            });
-        }
-
-        let app = new Vue({
-            el: "#root",
-            data:{
-                term:""
-            },
-            methods:{
-                searchTerm(){
-                    console.log("In Search Term");
-                }
-            }
-        })
-    </script>
+    <script src="src/load-firebase.js"></script>
+    <script src="src/google-map.js"></script>
+    <script src="src/yelp-main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBarX-tmnXlf2toYLLKreol8xvl0a7bxrc&callback=initMap"
         async defer></script>
 </body>
