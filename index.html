@@ -43,7 +43,7 @@
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="src/helper-functions.js"></script>
-    
+    <script src="src/yelp-result.js"></script>
 </head>
 
 <body>
@@ -57,9 +57,8 @@
         <input type="radio" name="open_now" value="open">
         <input type="radio" name="closed_now" value="closed">
     </div>
-
     <script src="src/load-firebase.js"></script>
-    <script src="src/google-map.js"></script>
+    <script src="src/google-map.js" type="module"></script>
     <script src="src/yelp-main.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBarX-tmnXlf2toYLLKreol8xvl0a7bxrc&callback=initMap"
         async defer></script>

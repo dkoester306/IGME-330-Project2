@@ -6,7 +6,7 @@ To Do List:
 - ~~add price to infowindow~~
 - rating start dropdown limiter
 - Display yelp starts for review in place of numbers.
-- save last search term in the browser local storage (firebase)
+- ~~save last search term in the browser local storage (firebase)~~
 - Add html tag that says "searching" between seaching overhead time
 - option to disable circle
 - add ES6 module and class somewhere.

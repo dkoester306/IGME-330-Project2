@@ -1,6 +1,6 @@
 // base url for accessing YELP API. File must be run through Banjo. Append endpoints to the this.
 const BASE_URL = "https://people.rit.edu/dsk6539/330/yelp/yelp-proxy.php?";
-
+let fBase = new FireBaseLoader("");
 let app = new Vue({
     el: "#root",
     data: {
@@ -64,8 +64,13 @@ let app = new Vue({
             deleteMarkers();
             // created markers for all of the places found from the search
             for(let i = 0;i<this.result.businesses.length;i++){
+
                 addMarker(this.result.businesses[i]);
             }
+
+            // add term to firebase
+            
+            fBase.addTerm(this.term);
         },
         dataError(e) {
             console.log("An error occurred");

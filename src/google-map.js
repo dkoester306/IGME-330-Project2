@@ -71,20 +71,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 // from rit-coffee.html homework file
-function addMarker(latitude, longitude, title) {
-    let position = { lat: latitude, lng: longitude };
-    let marker = new google.maps.Marker({ position: position, map: map });
-    let icon
-    marker.setTitle(title);
+// function addMarker(latitude, longitude, title) {
+//     let position = { lat: latitude, lng: longitude };
+//     let marker = new google.maps.Marker({ position: position, map: map });
+//     let icon
+//     marker.setTitle(title);
 
-    // add marker to array
-    markers.push(marker);
+//     // add marker to array
+//     markers.push(marker);
 
-    // add a listener for the click event
-    google.maps.event.addListener(marker, "click", function (e) {
-        makeInfoWindow(this.position, this.title);
-    });
-}
+//     // add a listener for the click event
+//     google.maps.event.addListener(marker, "click", function (e) {
+//         makeInfoWindow(this.position, this.title);
+//     });
+// }
 
 // from rit-coffee.html homework file. uses the result object
 function addMarker(result) {
