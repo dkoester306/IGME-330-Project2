@@ -1,4 +1,3 @@
-export {getMiles};
 
 //https:www.jacklmoore.com/notes/rounding-in-javascript/
 

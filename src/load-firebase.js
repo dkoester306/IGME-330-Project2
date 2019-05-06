@@ -1,5 +1,5 @@
 // Initialize Firebase
-class FireBaseLoader {
+export class FireBaseLoader {
     constructor(term) {
         this.term = term;
         this.config = {
