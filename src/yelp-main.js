@@ -13,7 +13,7 @@ let app = new Vue({
     },
     methods: {
         getSearchData() {
-            console.log("In Search Term");
+            //console.log("In Search Term");
             this.searchingTag = true;
             // get the term from the Vue Object --
             // get the initial lat and lng from Google Maps
@@ -28,7 +28,7 @@ let app = new Vue({
                 let radString = "radius=" + getMeters(parseInt(this.radiusSelect, 10));
                 qString += "&" + radString;
             }
-            console.log(BASE_URL + qString);
+            //console.log(BASE_URL + qString);
 
             if (this.term.length < 1) {
                 return;
@@ -45,19 +45,6 @@ let app = new Vue({
             // 8 - open connection and send the request
             xhr.open("GET", BASE_URL + qString);
             xhr.send();
-            // structure for code from VUE HOMEWORK PART 2
-            // THIS DOES NOT WORK... "CORB blocked cross-origin response ... with MIME type application/type"
-            // fetch(BASE_URL + qString,{mode:"no-cors"})
-            //     .then(response=>{
-            //         if(!response.ok){
-            //             throw Error(`Error: ${response.statusText}`);
-            //         }
-            //         return response;
-            //     })
-            //     .then(json=>{
-            //         console.log(json);
-            //         this.result = json;
-            //     })
         },
         dataLoaded(e) {
             this.searchingTag = false;
