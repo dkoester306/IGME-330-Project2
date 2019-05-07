@@ -1,11 +1,14 @@
+import {FireBaseLoader} from './load-firebase.js';
 // base url for accessing YELP API. File must be run through Banjo. Append endpoints to the this.
 const BASE_URL = "https://people.rit.edu/dsk6539/330/yelp/yelp-proxy.php?";
-
+let fBase = new FireBaseLoader("");
 let app = new Vue({
     el: "#root",
     data: {
         term: "",
-        result: {}
+        result: {},
+        circle: "true",
+        radiusSelect:""
     },
     methods: {
         getSearchData() {
@@ -16,8 +19,15 @@ let app = new Vue({
             let termString = "term=" + this.term;
             let locString = "latitude=" + map.getCenter().lat() + "&" + "longitude=" + map.getCenter().lng();
 
+
             let qString = termString + "&" + locString;
-            //console.log(BASE_URL + qString);
+
+            // add radius parameter if this exists
+            if(this.radiusSelect!=""){
+                let radString = "radius="+getMeters(parseInt(this.radiusSelect,10));
+                qString +="&"+radString;
+            }
+            console.log(BASE_URL + qString);
 
             if (this.term.length < 1) {
                 return;
@@ -64,11 +74,19 @@ let app = new Vue({
             deleteMarkers();
             // created markers for all of the places found from the search
             for(let i = 0;i<this.result.businesses.length;i++){
+
                 addMarker(this.result.businesses[i]);
             }
+
+            // add term to firebase
+            
+            fBase.addTerm(this.term);
         },
         dataError(e) {
             console.log("An error occurred");
         },
+        changeCircleEnabled(){
+            setCircleEnabled(this.circle);
+        }
     }
 })

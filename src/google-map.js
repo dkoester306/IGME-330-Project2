@@ -23,7 +23,7 @@ function initMap() {
             };
 
             // draw circle in center
-            drawCenterCircle(pos);
+            drawCenterCircle(pos);  
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Current Location');
@@ -71,20 +71,20 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 
 // from rit-coffee.html homework file
-function addMarker(latitude, longitude, title) {
-    let position = { lat: latitude, lng: longitude };
-    let marker = new google.maps.Marker({ position: position, map: map });
-    let icon
-    marker.setTitle(title);
+// function addMarker(latitude, longitude, title) {
+//     let position = { lat: latitude, lng: longitude };
+//     let marker = new google.maps.Marker({ position: position, map: map });
+//     let icon
+//     marker.setTitle(title);
 
-    // add marker to array
-    markers.push(marker);
+//     // add marker to array
+//     markers.push(marker);
 
-    // add a listener for the click event
-    google.maps.event.addListener(marker, "click", function (e) {
-        makeInfoWindow(this.position, this.title);
-    });
-}
+//     // add a listener for the click event
+//     google.maps.event.addListener(marker, "click", function (e) {
+//         makeInfoWindow(this.position, this.title);
+//     });
+// }
 
 // from rit-coffee.html homework file. uses the result object
 function addMarker(result) {
@@ -115,6 +115,13 @@ function makeInfoWindow(position, msg) {
     });
 }
 
+function setCircleEnabled(bool){
+    if(bool=="true")
+        testCircle.setVisible(true);
+    else if(bool=="false")
+        testCircle.setVisible(false);
+}
+
 // takes in the result to use for all info displayed 
 function makeResultInfoWindow(position, result) {
     // close old window if it exists
@@ -128,6 +135,7 @@ function makeResultInfoWindow(position, result) {
     infoWindow = new google.maps.InfoWindow({
         map: map,
         position: position,
+        // edit this section for CSS markdown (Alex)
         content: '<div id="infoWindowContent">' +
             '<a href="'+ result.url  +'" " ><h1 id="nameHeading">'+result.name+'</h1></a>'+
             '<div id="keyInfo">'+
