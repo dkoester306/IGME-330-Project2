@@ -9,9 +9,9 @@ Second and final project for IGME-330. Implements google maps API and yelp API t
 - ~~Add html tag that says "searching" between seaching overhead time (Danny)~~
 - ~~option to disable circle (Danny)~~
 - ~~add ES6 module and class somewhere.~~
-- ~~add image (make sure it scales) (Alex)
+- ~~add image (make sure it scales) (Alex)~~
 - ~~display more info in infoWindow~~
-- ~~Format InforWindow UI and other UI with CSS (Alex)
+- ~~Format InforWindow UI and other UI with CSS (Alex)~~
 
 ### Links
 * https://developers.google.com/maps/documentation/javascript/examples/marker-remove
