@@ -1,6 +1,9 @@
 # IGME-330-Project2
 Second and final project for IGME-330. Implements google maps API and yelp API to display restaurants in the local area with yelp reviews.
 
+##### (Side Sote)
+The radius parameter for the YELP API does not always function correctly. In densely populated areas, the actual radius is smaller than the selected one via the UI, and larger for smaller populated areas (like RIT area).
+
 ### To Do List:
 - ~~radius size dropdown (Danny)~~
 - ~~add price to infowindow~~
