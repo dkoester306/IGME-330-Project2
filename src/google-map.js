@@ -111,6 +111,7 @@ function makeInfoWindow(position, msg) {
     infoWindow = new google.maps.InfoWindow({
         map: map,
         position: position,
+
         content: "<b>" + msg + "</b>"
     });
 }
@@ -137,7 +138,7 @@ function makeResultInfoWindow(position, result) {
         position: position,
         // edit this section for CSS markdown (Alex)
         content: '<div id="infoWindowContent">' +
-            '<a href="'+ result.url  +'" " ><h1 id="nameHeading">'+result.name+'</h1></a>'+
+            '<a href="'+ result.url  +'" " ><h1 id="nameHeading">'+result.name+                         '</h1></a>'+
             '<div id="keyInfo">'+
             '<h4 id="rating">Rating: '+result.rating+'</h4>'+
             '<h5>'+pir+'</h5>'+
@@ -145,7 +146,7 @@ function makeResultInfoWindow(position, result) {
             '<h5>Address: '+ result.location.address1 +'</h5>'+
             //'<img src="'+result.image_url+'">'+
             '<h5>Distance: '+getMiles(result.distance).toFixed(1)+' miles</h5>'+
-            '</div>'+
+            '<img id="img" src="'+result.image_url+'">'+
             '</div>'
     });
 }
