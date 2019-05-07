@@ -5,66 +5,6 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            height: 100%;
-            z-index: 0;
-        }
-
-        #termBar {
-            position: absolute;
-            color: red;
-            font-weight: bold;
-            height: 30px;
-            width: 130px;
-            z-index: 100;
-            top: 10px;
-            left: 200px;
-
-        }
-        #searchTermButton{
-            position: absolute;
-            font-weight: bold;
-            font-size: 20px;
-            height: 35px;
-            width: 100px;
-            z-index: 100;
-            top: 10px;
-            left: 350px;
-        }
-        #trueButton{
-            position: absolute;
-            top: 100px;
-            left: 50px;
-        }
-        #trueLabel{
-            position: absolute;
-            top: 100px;
-            left: 70px;
-        }
-        #falseButton{
-            position: absolute;
-            top: 140px;
-            left: 50px;
-        }
-        #falseLabel{
-            position: absolute;
-            top: 140px;
-            left: 70px;
-        }
-        #radiusSelect{
-            position: absolute;
-            top: 170px;
-            left: 70px;
-        }
-    </style>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="src/helper-functions.js"></script>
@@ -75,27 +15,29 @@
 </head>
 
 <body>
-    
-    
-    
     <div id="map"></div>
     <div id="root">
         <input id="termBar" type="text" size="20" maxlength="20" v-model="term" />
         <button id="searchTermButton" @click="getSearchData" >Search</button>
         <!-- <input type="radio" name="open_now" value="open">
-        <input type="radio" name="closed_now" value="closed"> -->
-        <input type="radio" id="trueButton" name="trueButton" value=true checked v-model="circle" v-on:change="changeCircleEnabled">
-        <label id="trueLabel"for="trueButton">TRUE</label>
-        <input type="radio" id="falseButton" name="falseButton" value=false v-model="circle" v-on:change="changeCircleEnabled">
-        <label id="falseLabel" for="falseButton">FALSE</label>
-        <select id="radiusSelect" v-model="radiusSelect">
-            <option disabled value="">Please choose Miles</option>
-            <option>5</option>
-            <option>10</option>
-            <option>15</option>
-            <option>20</option>
-            <option>25</option>
-        </select>
+        <input type="radio" name="closed_now" value="closed"> -->                                                                         
+            <p id="searchP" v-if="searchingTag">SEARCHING NOW.....</p>
+            <p id="view">View Circle</p>
+            <input type="radio" id="trueButton" name="trueButton" value=true checked v-model="circle" v-on:change="changeCircleEnabled">
+            <label id="trueLabel"for="trueButton">TRUE</label>
+            <input type="radio" id="falseButton" name="falseButton" value=false v-model="circle" v-on:change="changeCircleEnabled">
+            <label id="falseLabel" for="falseButton">FALSE</label>
+            <select id="radiusSelect" v-model="radiusSelect">
+                <option disabled value="">Please choose Miles</option>
+                <option>5</option>
+                <option>10</option>
+                <option>15</option>
+                <option>20</option>
+                <option>25</option>
+            </select>
+
+       
+
     </div>
     <!-- <script src="src/load-firebase.js"></script> -->
     <script src="src/google-map.js"></script>
