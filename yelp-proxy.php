@@ -24,7 +24,19 @@
       // encode spaces in the parameters as +
       $term = str_replace(' ', '+', $term);
       $location = str_replace(' ', '+', $location);
-      $url = $BASE_URL . "term=$term&location=$location";
+			$url = $BASE_URL . "term=$term&location=$location";
+			
+			// add radius
+			if(array_key_exists('radius',$_REQUEST)){
+				$radius = str_replace(' ', '+', $radius);
+				$url .="&radius=$radius";
+			}
+
+			// add price
+			if(array_key_exists('price',$_REQUEST)){
+				$price = str_replace(' ', '+', $price);
+				$url .="&price=$price";
+			}
       
       // set up our authorization headers to send the API key
 			$headers = stream_context_create(array(
@@ -59,7 +71,19 @@
       $term = str_replace(' ', '+', $term);
 			$latitude = str_replace(' ', '+', $latitude);
 			$longitude = str_replace(' ', '+', $longitude);
-      $url = $BASE_URL . "term=$term&latitude=$latitude&longitude=$longitude";
+			$url = $BASE_URL . "term=$term&latitude=$latitude&longitude=$longitude";
+			
+			// add radius
+			if(array_key_exists('radius',$_REQUEST)){
+				$radius = str_replace(' ', '+', $radius);
+				$url .="&radius=$radius";
+			}
+
+			// add price
+			if(array_key_exists('price',$_REQUEST)){
+				$price = str_replace(' ', '+', $price);
+				$url .="&price=$price";
+			}
       
       // set up our authorization headers to send the API key
 			$headers = stream_context_create(array(

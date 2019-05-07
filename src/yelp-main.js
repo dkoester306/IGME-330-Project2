@@ -6,7 +6,9 @@ let app = new Vue({
     el: "#root",
     data: {
         term: "",
-        result: {}
+        result: {},
+        circle: "true",
+        radiusSelect:""
     },
     methods: {
         getSearchData() {
@@ -17,8 +19,15 @@ let app = new Vue({
             let termString = "term=" + this.term;
             let locString = "latitude=" + map.getCenter().lat() + "&" + "longitude=" + map.getCenter().lng();
 
+
             let qString = termString + "&" + locString;
-            //console.log(BASE_URL + qString);
+
+            // add radius parameter if this exists
+            if(this.radiusSelect!=""){
+                let radString = "radius="+getMeters(parseInt(this.radiusSelect,10));
+                qString +="&"+radString;
+            }
+            console.log(BASE_URL + qString);
 
             if (this.term.length < 1) {
                 return;
@@ -76,5 +85,8 @@ let app = new Vue({
         dataError(e) {
             console.log("An error occurred");
         },
+        changeCircleEnabled(){
+            setCircleEnabled(this.circle);
+        }
     }
 })

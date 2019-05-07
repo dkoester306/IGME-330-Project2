@@ -23,7 +23,7 @@ function initMap() {
             };
 
             // draw circle in center
-            drawCenterCircle(pos);
+            drawCenterCircle(pos);  
 
             infoWindow.setPosition(pos);
             infoWindow.setContent('Current Location');
@@ -115,6 +115,13 @@ function makeInfoWindow(position, msg) {
     });
 }
 
+function setCircleEnabled(bool){
+    if(bool=="true")
+        testCircle.setVisible(true);
+    else if(bool=="false")
+        testCircle.setVisible(false);
+}
+
 // takes in the result to use for all info displayed 
 function makeResultInfoWindow(position, result) {
     // close old window if it exists
@@ -124,6 +131,7 @@ function makeResultInfoWindow(position, result) {
     infoWindow = new google.maps.InfoWindow({
         map: map,
         position: position,
+        // edit this section for CSS markdown (Alex)
         content: '<div id="infoWindowContent">' +
             '<a href="'+ result.url  +'" id="nameHeading" ><h1>'+result.name+'</h1></a>'+
             '<div id="keyInfo">'+
