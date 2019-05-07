@@ -42,27 +42,32 @@
         #trueButton{
             position: absolute;
             top: 100px;
-            left: 50px;
+            left: 20px;
         }
         #trueLabel{
             position: absolute;
             top: 100px;
-            left: 70px;
+            left: 40px;
         }
         #falseButton{
             position: absolute;
             top: 140px;
-            left: 50px;
+            left: 20px;
         }
         #falseLabel{
             position: absolute;
             top: 140px;
-            left: 70px;
+            left: 40px;
         }
         #radiusSelect{
             position: absolute;
             top: 170px;
-            left: 70px;
+            left: 20px;
+        }
+        #searchP{
+            position: absolute;
+            top: 50px;
+            left: 20px;
         }
     </style>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase.js"></script>
@@ -84,6 +89,7 @@
         <button id="searchTermButton" @click="getSearchData" >Search</button>
         <!-- <input type="radio" name="open_now" value="open">
         <input type="radio" name="closed_now" value="closed"> -->
+        <p id="searchP" v-if="searchingTag">SEARCHING NOW.....</p>
         <input type="radio" id="trueButton" name="trueButton" value=true checked v-model="circle" v-on:change="changeCircleEnabled">
         <label id="trueLabel"for="trueButton">TRUE</label>
         <input type="radio" id="falseButton" name="falseButton" value=false v-model="circle" v-on:change="changeCircleEnabled">
